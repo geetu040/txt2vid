@@ -16,4 +16,4 @@ async def get_video(prompt, video_format="mp3"):
 	video_path = generate_video(prompt)
 	if video_format in ["webm", "mov"]:
 		video_path = convert_video_format(video_path, video_format)
-	return FileResponse(video_path, media_type="video/mp4")
+	return FileResponse(video_path, media_type=f"video/{video_format}")
