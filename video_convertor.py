@@ -21,5 +21,7 @@ def convert_video_format(input_video_path, output_format):
 
 	print(f"Video converted and saved as {output_video_path}")
 
+	return output_video_path
+
 if __name__ == "__main__":
 	convert_video_format("test\\thunder-file_e46c3db6.mp4", "webm")
