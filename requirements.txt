@@ -1,0 +1,7 @@
+torch
+opencv-python
+diffusers
+transformers
+accelerate
+uvicorn
+fastapi
