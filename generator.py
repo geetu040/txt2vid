@@ -11,6 +11,12 @@ pipe.enable_model_cpu_offload()
 # MAIN
 def generate_video(prompt):
 	# prompt = "Spiderman is surfing"
+
+	print("Generating the video .....")
 	video_frames = pipe(prompt, num_inference_steps=25).frames
+	
+	print("Saving the video ..... ", end="")
 	video_path = export_to_video(video_frames)
+	print(f"saved: {video_path}")
+
 	return video_path
