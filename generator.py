@@ -8,7 +8,7 @@ pipe = DiffusionPipeline.from_pretrained("damo-vilab/text-to-video-ms-1.7b", tor
 # GPU EFFICIENT
 pipe.scheduler = DPMSolverMultistepScheduler.from_config(pipe.scheduler.config)
 pipe.enable_model_cpu_offload()
-# pipe.enable_vae_slicing()
+pipe.enable_vae_slicing()
 
 # MAIN
 def generate_video(prompt, video_length):
