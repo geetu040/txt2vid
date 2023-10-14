@@ -20,4 +20,6 @@ async def get_video(prompt, video_format="mp3"):
 
 	media_type, _ = mimetypes.guess_type(video_path)
 
+	print("Media Type:", media_type)
+
 	return FileResponse(video_path, media_type=media_type)
