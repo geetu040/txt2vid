@@ -14,6 +14,11 @@ async def index():
 
 @app.get("/get_video")
 async def get_video(prompt, video_format="mp3", video_length=2):
+	# making sure video_length is between 1 and 10 seconds
+	video_length = int(video_length)
+	video_length = min(video_length, 10)
+	video_length = max(video_length, 1)
+
 	video_path = generate_video(prompt, video_length)
 	if video_format in ["webm", "mov"]:
 		video_path = convert_video_format(video_path, video_format)
