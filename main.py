@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 import mimetypes
 from pathlib import Path
-# from generator import generate_video
+from generator import generate_video
 from video_convertor import convert_video_format
 import logging
 
@@ -25,8 +25,8 @@ async def get_video(prompt, video_format="mp3", video_length=1):
 	video_length = min(video_length, 15)
 	video_length = max(video_length, 1)
 
-	video_path = "test\\thunder-file_e46c3db6.mp4"
-	# video_path = generate_video(prompt, video_length)
+	# video_path = "test\\thunder-file_e46c3db6.mp4"
+	video_path = generate_video(prompt, video_length)
 	if video_format in ["webm", "mov"]:
 		video_path = convert_video_format(video_path, video_format)
 
