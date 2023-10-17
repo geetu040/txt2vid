@@ -10,10 +10,10 @@ app = FastAPI()
 @app.get("/")
 async def index():
 	print("someone just went to the home page")
-	return "Hi"
+	return "The App is running"
 
 @app.get("/get_video")
-async def get_video(prompt, video_format="mp3", video_length=2):
+async def get_video(prompt, video_format="mp3", video_length=1):
 	# making sure video_length is between 1 and 10 seconds
 	video_length = int(video_length)
 	video_length = min(video_length, 15)
