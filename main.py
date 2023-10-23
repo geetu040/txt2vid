@@ -13,12 +13,12 @@ app = FastAPI()
 @app.get("/")
 async def index():
 	print("someone just went to the home page")
-	logging.info('Hit at Index')
+	logging.info('route: /')
 	return "The App is running"
 
 @app.get("/get_dummy_video")
 async def get_dummy_video(prompt, video_format="mp3", video_length=1):
-	logging.info(f'prompt: {prompt}\tvideo_format: {video_format}\tvideo_length:{video_length}')
+	logging.info('route: /get_dummy_video')
 
 	# making sure video_length is between 1 and 10 seconds
 	video_length = int(video_length)
@@ -32,9 +32,6 @@ async def get_dummy_video(prompt, video_format="mp3", video_length=1):
 		video_path = convert_video_format(video_path, video_format)
 
 	media_type, _ = mimetypes.guess_type(video_path)
-
-	print("Media Type:", media_type)
-	logging.info(f'video_path: {video_path}\tmedia_type: {media_type}')
 
 	return FileResponse(video_path, media_type=media_type)
 
