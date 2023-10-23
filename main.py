@@ -6,8 +6,12 @@ from generator import generate_video
 from video_convertor import convert_video_format
 import logging
 import time
+import os
 
-logging.basicConfig(filename='app_logs.log', level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+log_file = 'app_logs.log'
+if os.path.exists(log_file):
+    os.remove(log_file)
+logging.basicConfig(filename=log_file, level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 app = FastAPI()
 
